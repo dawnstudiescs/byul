@@ -2,7 +2,7 @@ from discord import Intents
 from datetime import datetime
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from discord import Embed
+from discord import Embed, File
 from discord.ext.commands import Bot as BotBase
 
 PREFIX = "b-"
@@ -40,9 +40,10 @@ class Bot(BotBase):
     async def on_ready(self):
         if not self.ready:
             self.ready = True
-            self.guild = self.get_guild(693443636406386760)
+            #self.guild = self.get_guild(693443636406386760)
             print("byul ready")
 
+            '''
             channel = self.get_channel(697769479710703777)
             #await channel.send("**Byul** is online.")
 
@@ -57,6 +58,10 @@ class Bot(BotBase):
             embed.set_footer(text="Take a lollipop!")
             embed.set_author(name="Dawnu", icon_url=self.guild.icon_url)
             await channel.send(embed=embed)
+
+            await channel.send(file=File("./data/images/profile.png))
+
+            '''
 
         else:
             print("byul reconnected")
